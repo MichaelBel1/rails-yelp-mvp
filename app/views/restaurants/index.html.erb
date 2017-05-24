@@ -9,9 +9,12 @@
         <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
         <p><%= restaurant.address %></p>
         <p><%= restaurant.category %></p>
-        <%= link_to "Delete this restaurant", restaurant_path(restaurant), method: :delete %>
+        <%= link_to "Delete this restaurant", restaurant_path(restaurant), method: :delete %> ||
+        <%= link_to "Add a new review", new_restaurant_review_path(restaurant) %>
+        <hr>
       <% end %>
     </div>
   </div>
 </div>
+
 

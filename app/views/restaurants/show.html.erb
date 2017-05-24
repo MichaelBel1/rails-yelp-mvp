@@ -4,8 +4,18 @@
       <h1><%= @restaurant.name %></h1>
       <p><%= @restaurant.address %></p>
       <p><%= @restaurant.category %></p>
+      <ul>
+        <% @restaurant.reviews.each do |review| %>
+          <% review.rating.times do |rating| %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end  %>
+          - <%= review.content %>
+          <br>
+        <% end %>
+      </ul>
 
-      <%= link_to 'Back to Home', restaurants_path %>
+      <%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %> ||
+      <%= link_to 'Back to Home', restaurants_path %> ||
       <%= link_to 'Edit this restaurant', edit_restaurant_path(@restaurant) %>
     </div>
   </div>

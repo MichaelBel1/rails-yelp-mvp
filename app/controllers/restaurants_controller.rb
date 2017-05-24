@@ -14,9 +14,13 @@ class RestaurantsController < ApplicationController
 
   def create
     # Create restaurant
-    Restaurant.create(restaurant_params)
+    @restaurant = Restaurant.new(restaurant_params)
     # redirect to the index of restaurants
-    redirect_to restaurants_path
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
